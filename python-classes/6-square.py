@@ -1,61 +1,108 @@
-ii/usr/bin/python3
+#!/usr/bin/python3
 """
-Write a class Square that defines a square by: (based on 5-square.py)
+Square Module - for all your needs.
 """
 
 
 class Square:
-    """Initialize a class with init"""
+    """
+    Square class for square objects. Square square square.
+    Square is one of those words that looks stranger the more you type it.
+    """
+    # Instantiation with optional size and optional position:
     def __init__(self, size=0, position=(0, 0)):
-        if type(size) is not int:
-            raise TypeError("size must be an integer")
-        elif size < 0:
-            raise ValueError("size must be >= 0")
-        if type(position) is not tuple or len(position) != 2:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        if (type(position[0]) is not int or type(position[1]) is not int or
-                position[0] < 0 or position[1] < 0):
-            raise TypeError("position must be a tuple of 2 positive integers")
-        self.__size = size
-        self.__position = position
+        """
+        Square init. Square. Skware
+        Now takes a position for your sqware
+        """
+        self.size = size
+        self.position = position
 
     @property
+    # Private instance attribute: size:
     def size(self):
-        return self.__size
-
+        """
+        Getter for the size of the square
+        """
+        return (self.__size)
+    # create the private variable
     @size.setter
-    def sizechange(self, value):
-        if type(value) is not int:
-            raise TypeError("size must be an integer")
-        elif value < 0:
-            raise ValueError("size must be >= 0")
+    def size(self, value):
+        """
+        Setter for setting sqwar size.
+        """
+        # calling the setter
+        self.__check_size__(value)
         self.__size = value
 
+    # Private instance attribute: position:
     @property
     def position(self):
-        return self.__position
+        """
+        Getter for the size of ya square
+        """
+        return (self.__position)
 
+    # property setter def position(self, value)
     @position.setter
     def position(self, value):
-        if type(value) is not tuple or len(value) != 2:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        if (type(value[0]) is not int or type(value[1]) is not int or
-                value[0] < 0 or value[1] < 0):
-            raise TypeError("position must be a tuple of 2 positive integers")
+        """
+        Setter for square position
+        where your square is
+        """
+        # to set it:
+        # size must be an integer
+        self.__check_pos__(value)
+        # size is less than 0
         self.__position = value
 
-    "Defining the square"""
+    # Public instance method:
     def area(self):
-        return self.__size * self.__size
+        """
+        Returns the area of the square.
+        """
+        return (self.__size ** 2)
 
+    # Public instance method, could do it with join as well:
     def my_print(self):
-        if self.__size is 0:
+        """
+        Prints the square! Should only print a newline if size is 0.
+        Now includes the position to print them at.
+        """
+        if self.__size == 0:
             print()
         else:
-            count = 1
-            while(count <= self.__size):
-                if count == 1:
-                    print("\n" * self.__position[1], end="")
-                print(" " * self.__position[0], end="")
-                print("#" * self.__size)
-                count += 1
+            for i in range(self.__position[1]):
+                print()
+            for j in range(self.__size):
+                for h in range(self.__position[0]):
+                    print(" ", end="")
+                for k in range(self.__size):
+                    if k == (self.size - 1):
+                        print("#")
+                        break
+                    print("#", end="")
+
+    # create a new attribute in python
+    def __check_pos__(self, position):
+        """
+        Error checking for a square position
+        position must be a tuple of 2 positive integers
+        """
+        if (type(position) != tuple or len(position) != 2 or
+            type(position[0]) != int or type(position[1]) != int or
+                position[0] < 0 or position[1] < 0):
+            # otherwise, raise a TypeError
+            raise TypeError("position must be a tuple of 2 positive integers")
+
+    def __check_size__(self, size):
+        """
+        Error checking for square sizes!
+        Must be a valid integer, >= 0
+        """
+        # size must be an integer, otherwise raise a TypeError exception
+        if type(size) != int:
+            raise TypeError("size must be an integer")
+        # if size is less than 0, raise a ValueError
+        if size < 0:
+            raise ValueError("size must be >= 0")
