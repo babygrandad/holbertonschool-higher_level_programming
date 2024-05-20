@@ -1,20 +1,13 @@
 #!/usr/bin/python3
-"""
-Module text_indentation
-Adds two new lines after a set of characters.
-"""
+'''print square module'''
 
 
-def text_indentation(text):
-    """Prints text with added two newlines
-    after each of these characters {'.', '?', ':'}.
-    """
-
-    if type(text) is not str:
-        raise TypeError("text must be a string")
-
-    for delim in ".:?":
-        text = (delim + "\n\n").join(
-            [line.strip(" ") for line in text.split(delim)])
-
-    print("{}".format(text), end="")
+def print_square(size):
+    if size is 0:
+        return
+    if not isinstance(size, int):
+        raise TypeError('size must be an integer')
+    if size < 0:
+        raise ValueError('size must be >= 0')
+    print('\n'.join('#' * size for x in range(size)))
+    
