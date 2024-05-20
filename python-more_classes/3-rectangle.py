@@ -74,4 +74,3 @@ class Rectangle:
             else:
                 res += (('#' * self.__width) + '\n')
         return res
-    
