@@ -1,13 +1,19 @@
 #!/usr/bin/python3
-'''print square module'''
+"""square print"""
 
 
 def print_square(size):
-    if size is 0:
-        return
+    """square
+
+    Args:
+        size: size of the square
+    """
     if not isinstance(size, int):
-        raise TypeError('size must be an integer')
+        raise TypeError("size must be an integer")
     if size < 0:
-        raise ValueError('size must be >= 0')
-    print('\n'.join('#' * size for x in range(size)))
-    
+        raise ValueError("size must be >= 0")
+
+    for i in range(size):
+        for j in range(size):
+            print("#", end="")
+        print("")
