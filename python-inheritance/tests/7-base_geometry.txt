@@ -1,4 +1,3 @@
-# 7-base_geometry.txt
 =============================
 How to Use 7-base_geometry.py
 =============================
@@ -8,7 +7,7 @@ This modules defines a base geometry class BaseGeometry.
 Instantiation
 =============
 
-``BaseGeometry`` includes no attributes, and accordingly is initialized 
+``BaseGeometry`` includes no attributes, and accordingly is initialized
 with no arguments.
 
 ::
@@ -28,22 +27,9 @@ in a TypeError.
 
 ::
 
-    >>> bg = BaseGeometry(None)
-    Traceback (most recent call last):
-    TypeError: object() takes no parameters
-
-Methods
-=======
-
-``BaseGeometry`` features two methods - ``area(self)`` and 
-``integer_validator(self, name, value)``. ``area(...)`` is not yet
-implemented.
-
-::
-
     >>> bg = BaseGeometry()
     >>> print(bg.area) # doctest: +ELLIPSIS, +NORMALIZE_WHITESPACE
-    <bound method BaseGeometry.area of <7-base_geometry.BaseGeometry 
+    <bound method BaseGeometry.area of <7-base_geometry.BaseGeometry
      object at...>>
 
 ::
@@ -52,14 +38,10 @@ implemented.
     Traceback (most recent call last):
     Exception: area() is not implemented
 
-The second method, ``integer_validator(...)``, validates the integer value
-of a paramter. The first parameter, ``name``, is the name of the argument to
-check. The second argument, ``value``, is the argument to check.
-
 ::
 
     >>> print(bg.integer_validator) # doctest: +ELLIPSIS, +NORMALIZE_WHITESPACE
-    <bound method BaseGeometry.integer_validator of <7-base_geometry.BaseGeometry 
+    <bound method BaseGeometry.integer_validator of <7-base_geometry.BaseGeometry
     object at...>>
 
 If ``value`` is a valid integer, the function does nothing.
@@ -125,24 +107,3 @@ is raised.
 Both ``name`` and ``value`` must be provided. Otherwise, a TypeError is raised.
 
 ::
-
-    >>> bg.integer_validator() # doctest: +NORMALIZE_WHITESPACE
-    Traceback (most recent call last):
-    TypeError: integer_validator() missing 2 required positional arguments: 
-    'name' and 'value'
-
-::
-
-    >>> bg.integer_validator(None) # doctest: +NORMALIZE_WHITESPACE
-    Traceback (most recent call last):
-    TypeError: integer_validator() missing 1 required positional argument: 
-    'value'
-
-The method assumes the paramter ``name`` will be a string, but ``name`` of any
-type will be printed.
-
-::
-
-    >>> bg.integer_validator({"a": 1}, (1, 2))
-    Traceback (most recent call last):
-    TypeError: {'a': 1} must be an integer
