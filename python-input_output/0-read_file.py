@@ -1,15 +1,15 @@
 #!/usr/bin/python3
 """
-This module have a function called read_file,
-that reads and prints a file that it have been past
+a function that reads a text file (UTF8) and prints it to stdout
 """
 
 
 def read_file(filename=""):
     """
-    This function that read a text file
-    and prints it to stdout
+    Reads a text file (UTF8) and prints its content to stdout
+
+    filename (str): The name of the file to read
     """
-    with open(filename, 'r') as fd:
-        for line in fd:
+    with open(filename, mode="r", encoding="utf-8") as file:
+        for line in file:
             print(line, end="")
