@@ -1,12 +1,9 @@
 #!/usr/bin/python3
-"""define function read"""
+"""a function that reads a text file (UTF8) and pirnts it to stdout"""
 
 
 def read_file(filename=""):
-    """read file function"""
-    with open(filename, encoding="utf-8") as f:
-        f = (f.read()[:-1])
-        if f == "":
-            return
-        else:
-            print(f)
+    """read 'filename'"""
+
+    with open(filename, "r", encoding='utf-8') as a_file:
+        print("{}".format(a_file.read()), end="")
