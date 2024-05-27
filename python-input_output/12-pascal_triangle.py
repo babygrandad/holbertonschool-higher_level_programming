@@ -1,4 +1,3 @@
-
 #!/usr/bin/python3
 """create and return a list of lists of int represent Pascal triangle of n"""
 
