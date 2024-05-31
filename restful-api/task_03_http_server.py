@@ -22,13 +22,12 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             }
             self.wfile.write(json.dumps(response).encode('utf-8'))
         
-        elif self.path == '/info':  # Make sure this matches the expected endpoint
+        elif self.path == '/status':
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
             self.end_headers()
             response = {
-                "version": "1.0",
-                "description": "A simple API built with http.server"
+                "status" : "Ok"
             }
             self.wfile.write(json.dumps(response).encode('utf-8'))
         
